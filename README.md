@@ -12,7 +12,8 @@ quarter til twelve
 
 ## FAQ
 
-* Why?
+### Why?
+
 Shut up
 
 ## Author
