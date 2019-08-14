@@ -31,7 +31,9 @@ func hourWord(hours int) string {
 	return WORDS[hours]
 }
 
-func fuzzy(hours, minutes int) string {
+func fuzzy(now time.Time) string {
+	hours := now.Hour()
+	minutes := now.Minute()
 	glue := "past"
 
 	rounded := (minutes + 2) % 60 / 5 * 5
@@ -57,6 +59,5 @@ func fuzzy(hours, minutes int) string {
 }
 
 func main() {
-	now := time.Now()
-	fmt.Println(fuzzy(now.Hour(), now.Minute()))
+	fmt.Println(fuzzy(time.Now()))
 }

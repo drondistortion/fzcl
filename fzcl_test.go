@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"testing"
+	"time"
 )
 
 type Parameters struct {
@@ -25,7 +26,8 @@ func TestTime(t *testing.T) {
 	}
 	for _, param := range times {
 		t.Run(param.Name(), func(t *testing.T) {
-			result := fuzzy(param.hours, param.minutes)
+			now, _ := time.Parse("3:04", param.Name())
+			result := fuzzy(now)
 			if result != param.out {
 				t.Errorf("got %s, want %s", result, param.out)
 			}
